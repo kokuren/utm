@@ -36,6 +36,7 @@
     <plugin name="cordova-plugin-console" />
     <plugin name="cordova-plugin-device" />
     <plugin name="cordova-plugin-network-information" />
+    <plugin name="cordova-plugin-android-fingerprint-auth" />
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
