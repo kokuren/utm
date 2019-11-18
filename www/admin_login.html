@@ -10,7 +10,7 @@
 <body>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript">
-    
+    document.addEventListener("deviceready", function() {
       // Here the code to verificate the fingerprint
       // Check if device supports fingerprint
 
@@ -59,6 +59,7 @@
       }, function(message) {
         console.log("isAvailableError(): " + message);
       });
+      }, false);
   </script>
 </body>
 
