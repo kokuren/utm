@@ -108,10 +108,8 @@
                   if (jsonarr[i].school == "School of Sustainable Development and Tourism - SSDT") {
                     type = jsonarr[i].type;
                     url2 = jsonarr[i].url;
-                    document.getElementById('main').innerHTML += '<a href="#popupSemester' + i + '" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View ' + type +
-                      ' TimeTable</a><div data-role="popup" id="popupSemester' + i +
-                      '" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15"><a href="#" data-rel="back" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><iframe src="' +
-                      url2 + '" id="iframe1" width="480" height="320" seamless=""></iframe></div>';
+                    document.getElementById('main').innerHTML += '<a href="#' + url2 + '" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View ' + type +
+                      ' TimeTable</a>';
                   }
                 }
               });
