@@ -30,7 +30,9 @@
     // Pagecreate will fire for each of the pages in this demo
     // but we only need to bind once so we use "one()"
     //
-    
+    function go(x) {
+  window.location.href = x;
+}
     $(document).one("pagecreate", ".demo-page", function() {
       $(':mobile-pagecontainer').on('swipeup',function(){window.location.href="index.html";} );
       // Initialize the external persistent header and footer
@@ -125,7 +127,7 @@
       <div data-role="navbar">
         <ul>
           <li><a href="#epage2" class="ui-btn-active ui-state-persist" data-icon="grid" dataicon="home">Event</a></li>
-          <li><a href="#page2" data-icon="home">Home</a></li>
+          <li><a onclick="go(index.html)" data-icon="home">Home</a></li>
           <li><a href="#npage1" data-icon="info">News</a></li>
         </ul>
       </div>
