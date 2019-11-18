@@ -180,7 +180,7 @@
     //getevent();
     var result_key = "";
     var z = "";
-    var url = "http://localhost:54698/GetAll/getall?operation=2";
+    var url = "http://192.168.100.8:45455/GetAll/getall?operation=2";
     $.get(url, function(data, status) {
       var jsonarr = JSON.parse(data);
       console.log(jsonarr[0]);
@@ -288,7 +288,7 @@
   <script type="text/javascript">
     var result_key = "";
     var z = "";
-    var url = "http://localhost:54698/GetAll/getall?operation=1";
+    var url = "http://192.168.100.8:45455/GetAll/getall?operation=1";
     $.get(url, function(data, status) {
       var jsonarr = JSON.parse(data);
       console.log(jsonarr[0]);
