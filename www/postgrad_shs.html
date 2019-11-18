@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Postgraduate SHS Programmes</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+  <div data-role="page" id="index_page" class="ui-page-theme-c">
+    <div data-role="header">
+      <p style="padding:20px;font-size:15pt;">Postgraduate Programmes for School of Health Sciences - SHS</p>
+      <a href="#left-panel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-b ui-btn-inline">Icon only</a>
+    </div>
+    <div data-role="main" class="ui-content">
+
+      <table data-role="table" id="tbl_post_shs" data-mode="reflow" class="ui-responsive">
+          <thead>
+              <tr>
+                  <th data-priority="persist">Name</th>
+                  <th>Mode</th>
+                  <th>Duration</th>
+                </tr>
+            </thead>
+        <tbody>
+          <tr>
+            <td><a href="http://www.utm.ac.mu/files/sthug/programmes/shs/PG/MSc_Mental_Health__version_1_0_16March17_4_1.pdf" rel="external" target="_blank">MSc Mental Health </a></td>
+            <td>PT </td>
+            <td>2yrs</td>
+          </tr>
+          <tr>
+            <td><a href="http://www.utm.ac.mu/files/sthug/programmes/shs/PG/MSc_Health_Services_Management_version_4.pdf" rel="external" target="_blank">MSc Health Services Management</a></td>
+            <td>PT </td>
+            <td>2yrs</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+       
+
+    </div>
+    <div data-role="footer">
+
+    </div>
+    <!--======================== PANEL STUFF ======================-->
+    <div data-role="panel" data-inset="false" id="left-panel" style="background-color:#08295a;" data-theme="b" data-display="overlay">
+      <ul data-role="listview" data-shadow="false" data-inset="false">
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="news_n_events.html">News And Events</a></li>
+
+        <li><a href="#po_shs_pop_1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Undergraduate Programs</a></li>
+        <div data-role="popup" id="po_shs_pop_1">
+          <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
+            <li data-role="list-divider">Choose a School</li>
+            <li><a href="undergrad_sbmf.html">SBMF</a></li>
+            <li><a href="undergrad_site.html">SITE</a></li>
+            <li><a href="undergrad_ssdt.html">SSDT</a></li>
+            <li><a href="undergrad_shs.html">SHS</a></li>
+          </ul>
+        </div><!-- /popup -->
+
+        <li><a href="#po_shs_pop_2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Postgraduate Programmes</a></li>
+        <div data-role="popup" id="po_shs_pop_2">
+          <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
+            <li data-role="list-divider">Choose a School</li>
+            <li><a href="postgrad_sbmf.html">SBMF</a></li>
+            <li><a href="postgrad_site.html">SITE</a></li>
+            <li><a href="postgrad_ssdt.html">SSDT</a></li>
+            <li><a href="postgrad_shs.html">SHS</a></li>
+          </ul>
+        </div><!-- /popup -->
+        <li><a href="award_courses.html">Award Courses</a></li>
+        <li><a href="research_fields.html">Research Fields</a></li>
+        <li><a href="fees.html">Fees</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+
+
+      </ul>
+      <div style="margin-top:100px;">
+        <a href="student_login.html" class="ui-btn ui-shadow" >Student LogIn</a>
+        <a href="admin_login.html" class="ui-btn ui-shadow" >Admin LogIn</a>
+      </div>
+
+
+    </div><!-- /panel -->
+    <!--======================== /PANEL STUFF ======================-->
+
+  </div>
+</body>
+
+</html>

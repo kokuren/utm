@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Research Fields</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+  <!--___________________LEAFLET________________-->
+<link rel="stylesheet" href="leaflet/leaflet.css" />
+<script src="leaflet/leaflet.js"></script>
+</head>
+
+<body onload="load_map()">
+
+
+  <div data-role="page" id="about_us_" class="ui-page-theme-c">
+    <div data-role="header">
+      <p style="padding:20px;font-size:17pt;text-align:center;">About US</p>
+      <a href="#about-panel" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-icon-left ui-btn-b">Panel</a>
+    </div>
+
+    <!-- =================================== NAV ==========================-->
+    <div data-role="tabs" id="about_tabs" data-inset="false" style="margin:0px;padding:0px;">
+      <div data-role="navbar" data-inset="false">
+        <ul>
+          <li><a href="#governors" data-theme="b" style="white-space:normal;height:30px;">Board of Governors</a></li>
+          <li><a href="#council" data-theme="b" style="white-space:normal;height:30px;">Council Members</a></li>
+          <li><a href="#location" data-theme="b" style="white-space:normal;height:30px;">Location&nbsp</a></li>
+          <li><a href="#contact" data-theme="b" style="white-space:normal;height:30px;">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!--========================================== GOVERNORS ===========================-->
+      <div id="governors" class="ui-content">
+        <b>President, UTM Board of Governors:</b>
+        <ul>
+          <li>
+            Mr Raj MAKOOND, GCSK
+          </li>
+        </ul>
+
+        <b>Members, UTM Board of Governors:</b>
+        <ul>
+          <li>Associate Prof (Dr) Keith Robert THOMAS</li>
+          <li>Mr D. PHILIPPE</li>
+          <li>Mr S. GANGOO</li>
+          <li>Mr I. BHUGUN</li>
+          <li>Mr A. MEETOO</li>
+          <li>Mr R. MUTTYLALL</li>
+          <li>Dr K. DOOKHITRAM</li>
+          <li>Mr R. B. AUBERT</li>
+          <li>Mr V. LALLJEE</li>
+        </ul>
+      </div>
+
+      <!--========================================== COUNCIL ===========================-->
+      <div id="council" class="ui-content">
+        <h2>Academic Council Members</h2>
+        <p>Associate Prof (Dr) Keith Robert THOMAS, Director General, University of Technology, Mauritius (Chairperson)</p>
+        <p>Dr Nardawoo JAYPAUL, Head of School of the School of Health Sciences, UTM</p>
+        <p>Dr Needesh RAMPHUL, Officer-in-Charge of the School of Business, Management and Finance, UTM</p>
+        <p>Dr (Mrs) Soolakshna LUKEA BHIWAJEE, Officer in Charge of the School of Sustainable Development and Tourism, UTM</p>
+        <p>Mr Jeetendre NARSOO, Officer in Charge of the School of Innovative Technologies and Engineering, UTM</p>
+        <p>Dr Amitabye LUXIMON-RAMMA, Elected Academic Representative of the School of Health Sciences, UTM</p>
+        <p>Dr Kumar DOOKHITRAM, Elected Academic Representative of the School of Innovative Technologies and Engineering, UTM</p>
+        <p>Mrs Aleesha BOOLAKY, Elected Academic Representative of the School of Business, Management and Finance, UTM</p>
+        <p>Mrs Preeya Vijayalakshmee RAMASAMY-COOLEN, Elected Academic Representative of the School of Sustainable Development and Tourism, UTM</p>
+        <p>Professor Sid NAIR, Executive Director of the Tertiary Education Commission</p>
+        <p>Mrs Soorya N. GAYAN, GOSK, Director General of the Mahatma Gandhi Institute & Rabindranath Tagore Institute</p>
+        <p>Dr Radhakrishna SOMANAH, Director General of the Université Des Mascareignes</p>
+        <p>Assoc. Prof Dr Anwar B RUMJAUN, representative of Director of the Mauritius Institute of Education</p>
+        <p>Miss Margarette LI YIN, representative of Director General of the Open University of Mauritius</p>
+        <p>Assoc. Prof Dr Francoise DRIVER, OSK, representative of the Vice-Chancellor of the University of Mauritius</p>
+        <p>Dr (Mrs) Asha DOOKUN-SAUMTALLY, appointed by the UTM Board of Governors</p>
+        <p>Mr Shyam Razkumar SEEBUN, appointed by the UTM Board of Governors</p>
+        <p>Mr Keshav PURDASEEA, Elected Student Representative, UTM</p>
+        <p>Co-opted members: Mr Devarajen VENETHETHAN, Quality Assurance Officer, UTM</p>
+        <p><b>Secretary: Mr Mahendra CHUTTURDHARRY, Ag. Registrar, UTM</b></p>
+      </div>
+
+
+      <!--========================================== LOCATION ===========================-->
+      <div id="location" class="ui-content">
+        <h2>Locate Us</h2>
+        <div id="mapid" style="width: 100%; height:450px;"></div>
+      </div>
+
+
+      <!--========================================== CONTACT ===========================-->
+      <div id="contact" class="ui-content">
+        <h2>Contact Us</h2>
+        <form>
+          <p>
+            Name:
+            <input type="text" name="input_name" id="input_name" value="">
+            </p>
+            <p>
+              Email:
+              <input type="text" name="input_email" id="input_email" value="">
+              </p>
+              <P>
+                Message:
+                <textarea name="input_comment" id="input_comment" rows="8"></textarea>
+                </P>
+
+               <input type="submit" name="btn_submit" class="ui-btn ui-icon-delete ui-btn-icon-right ui-shadow-icon ui-btn-b" id="btn_submit" value="Submit">
+        </form>
+
+      </div>
+
+    </div>
+
+    <!--======================== PANEL STUFF ======================-->
+    <div data-role="panel" data-inset="false" id="about-panel" style="background-color:#08295a;" data-theme="b" data-display="overlay">
+      <ul data-role="listview" data-shadow="false" data-inset="false">
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="news_n_events.html">News And Events</a></li>
+
+        <li><a href="#about_pop_1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Undergraduate Programs</a></li>
+        <div data-role="popup" id="about_pop_1">
+          <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
+            <li data-role="list-divider">Choose a School</li>
+            <li><a href="undergrad_sbmf.html">SBMF</a></li>
+            <li><a href="undergrad_site.html">SITE</a></li>
+            <li><a href="undergrad_ssdt.html">SSDT</a></li>
+            <li><a href="unergrad_shs.html">SHS</a></li>
+          </ul>
+        </div><!-- /popup -->
+
+        <li><a href="#about_pop_2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Postgraduate Programmes</a></li>
+        <div data-role="popup" id="about_pop_2">
+          <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
+            <li data-role="list-divider">Choose a School</li>
+            <li><a href="postgrad_sbmf.html">SBMF</a></li>
+            <li><a href="postgrad_site.html">SITE</a></li>
+            <li><a href="postgrad_ssdt.html">SSDT</a></li>
+            <li><a href="postgrad_shs.html">SHS</a></li>
+          </ul>
+        </div><!-- /popup -->
+        <li><a href="award_courses.html">Award Courses</a></li>
+        <li><a href="research_fields.html">Research Fields</a></li>
+        <li><a href="fees.html">Fees</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+
+
+      </ul>
+      <div style="margin-top:100px;">
+        <a href="student_login.html" class="ui-btn ui-shadow" >Student LogIn</a>
+        <a href="admin_login.html" class="ui-btn ui-shadow" >Admin LogIn</a>
+      </div>
+
+
+    </div><!-- /panel -->
+    <!--======================== /PANEL STUFF ======================-->
+
+  </div>
+
+
+    <script type="text/javascript">
+
+    function load_map(){
+      var latitude = -20.1771;
+      var longitude = 57.4673;
+
+      var mymap = L.map('mapid').setView([latitude, longitude], 16);
+      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        maxZoom: 19,
+        attribution: 'Map data &copy;' +
+          '<a href="https://www.openstreetmap.org/">OpenStreetMap</a>' +
+          'contributors,<a href="https://creativecommons.org/licenses' +
+          '/by-sa/2.0/">CC-BY-SA</a>,Imagery © <a href="https://' +
+          'www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYyc' +
+          'XBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+      }).addTo(mymap);
+
+      var marker = L.marker([latitude, longitude]).addTo(mymap);
+    }
+
+
+
+  </script>
+
+
+</body>
+
+</html>

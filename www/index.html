@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>UTM Hybrid Application</title>
+
+  <!-- <link rel="stylesheet" href="css/utm_theme.min.css" /> -->
+  <!-- <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" /> -->
+  <!-- <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" /> -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <!--=================== SCRIPT FOR PANEL ====================-->
+  <script>
+    $( document ).on( "pagecreate", "#index_page", function() {
+      $(document).on("swiperight", "#index_page", function(e) {
+        if ($(".ui-page-active").jqmData("panel") !== "open") {
+          if (e.type === "swiperight") {
+            $("#left-panel").panel("open");
+          }
+        }
+      });
+       });
+  </script>
+
+
+
+
+</head>
+
+
+<body>
+  <script type="text/javascript" src="cordova.js"></script>
+  <!-- ========================================== INDEX PAGE =========================-->
+  <div data-role="page" id="index_page" class="ui-page-theme-c">
+
+    <div data-role="header" id="head_img" class="ui-nodisc-icon">
+      <img src="images/utm.png" width="60%" />
+      <a href="#left-panel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-b ui-btn-inline">Icon only</a>
+
+    </div><!-- /header -->
+
+    <div data-role="main" class="ui-content">
+
+      <h4 class="mb-0">Info</h4>
+      <p class="close_p">The University of Technology, Mauritius (UTM) is a public research university in Mauritius. The main campus lies in La Tour Koenig, Pointe-aux-Sables, within the district of Moka. It was founded following the government of
+        Mauritius approval of the setting up of the University of Technology, Mauritius in January 2000 and the proclamation of The University of Technology, Mauritius Act on 21 June 2000.</p>
+
+      <h4>Select Your Interest Below</h4>
+      <hr />
+      <ul data-role="listview" data-inset="true">
+        <li class="start"><a href="#index_popup_under"  data-rel="popup" data-transition="pop">
+            <img src="images/index_1.png">
+            <h2>Undergraduate Programmes</h2>
+            <p>Find more information about the Undergraduate Programmes offered by our University.</p>
+
+
+
+          </a>
+
+        </li>
+        <div data-role="popup" id="index_popup_under">
+          <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
+            <li data-role="list-divider">Choose a School</li>
+            <li><a href="undergrad_sbmf.html">SBMF</a></li>
+            <li><a href="undergrad_site.html">SITE</a></li>
+            <li><a href="undergrad_ssdt.html">SSDT</a></li>
+            <li><a href="undergrad_shs.html">SHS</a></li>
+          </ul>
+        </div><!-- /popup -->
+        <li class="start"><a href="#index_popup_post" data-rel="popup" data-transition="pop">
+            <img src="images/index_2.png">
+            <h2>Postgraduate Programmes</h2>
+            <p>Find more information about the Postgraduate Programmes offered by our University.</p>
+          </a>
+        </li>
+        <div data-role="popup" id="index_popup_post">
+          <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
+            <li data-role="list-divider">Choose a School</li>
+            <li><a href="postgrad_sbmf.html">SBMF</a></li>
+            <li><a href="postgrad_site.html">SITE</a></li>
+            <li><a href="postgrad_ssdt.html">SSDT</a></li>
+            <li><a href="postgrad_shs.html">SHS</a></li>
+          </ul>
+        </div><!-- /popup -->
+        <li class="start"><a href="fees.html">
+            <img src="images/index_3.png">
+            <h2>Fees</h2>
+            <p>Find more information about the fees payable per semester</p>
+          </a>
+        </li>
+        <li class="start"><a href="about_us.html">
+            <img src="images/index_4.png">
+            <h2>Learn More About Us</h2>
+            <p>Find out about our location and stuff</p>
+          </a>
+        </li>
+      </ul>
+      <p>
+
+      </p>
+      <h4>Our Colaborators</h4>
+      <hr />
+      <div class="ui-grid-a">
+        <div class="ui-block-a"><a href="https://academy.oracle.com/en/oa-web-overview.html" rel='external' target='_blank' class="ui-shadow ui-btn ui-corner-all"><img src="images/oracle.png" width="100%" /></a></div>
+        <div class="ui-block-b"><a href="https://www.sap.com/corporate/en/company/innovation/next-gen-innovation-platform/university-alliances.html" rel='external' target='_blank' class="ui-shadow ui-btn ui-corner-all"><img src="images/sap.png"
+              width="100%" /></a></div>
+        <div class="ui-block-a"><a href="https://www.oracle.com/SUN/" rel='external' target='_blank' class="ui-shadow ui-btn ui-corner-all"><img src="images/sun.png" width="100%" /></a></div>
+        <div class="ui-block-b"><a href="https://www.microsoft.com/en-us/education/imagine-academy" rel='external' target='_blank' class="ui-shadow ui-btn ui-corner-all"><img src="images/microsoft-academy.png" width="100%" /></a></div>
+      </div>
+
+    </div><!-- /content -->
+
+    <div data-role="footer">
+      <h5>---Copyright---</h5>
+    </div><!-- /footer -->
+
+
+    <!--======================== PANEL STUFF ======================-->
+    <div data-role="panel" data-inset="false" id="left-panel" style="background-color:#08295a;" data-theme="b" data-display="overlay">
+      <ul data-role="listview" data-shadow="false" data-inset="false">
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="news_n_events.html">News And Events</a></li>
+
+        <li><a href="#index_nav_pop_1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Undergraduate Programs</a></li>
+        <div data-role="popup" id="index_nav_pop_1">
+          <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
+            <li data-role="list-divider">Choose a School</li>
+            <li><a href="undergrad_sbmf.html">SBMF</a></li>
+            <li><a href="undergrad_site.html">SITE</a></li>
+            <li><a href="undergrad_ssdt.html">SSDT</a></li>
+            <li><a href="undergrad_shs.html">SHS</a></li>
+          </ul>
+        </div><!-- /popup -->
+
+        <li><a href="#index_nav_pop_2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Postgraduate Programmes</a></li>
+        <div data-role="popup" id="index_nav_pop_2">
+          <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
+            <li data-role="list-divider">Choose a School</li>
+            <li><a href="postgrad_sbmf.html">SBMF</a></li>
+            <li><a href="postgrad_site.html">SITE</a></li>
+            <li><a href="postgrad_ssdt.html">SSDT</a></li>
+            <li><a href="postgrad_shs.html">SHS</a></li>
+          </ul>
+        </div><!-- /popup -->
+        <li><a href="award_courses.html">Award Courses</a></li>
+        <li><a href="research_fields.html">Research Fields</a></li>
+        <li><a href="fees.html">Fees</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+
+
+      </ul>
+      <div style="margin-top:100px;">
+        <a href="student_login.html" class="ui-btn ui-shadow" >Student LogIn</a>
+        <a href="admin_login.html" class="ui-btn ui-shadow" >Admin LogIn</a>
+      </div>
+
+
+    </div><!-- /panel -->
+    <!--======================== /PANEL STUFF ======================-->
+
+
+
+
+
+  </div><!-- /page -->
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>test Go</title>
+  <script type="text/javascript" src="cordova.js"></script>
+  <link rel="stylesheet" href="js/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href="boot/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="boot/bootstrap.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <style type="text/css">
+    #background {
+      position: fixed;
+      width: 100% !important;
+      height: 100% !important;
+      background: url(https://fsb.zobj.net/crop.php?r=2h_tBWsh41zdHe-SFjVBLUkdSf0ZguTmBMjyDNRZqP3uHwRyqNrj-ESyHIy2q9TM0xFIBFv32AfnSf7xsFCLWuzcfrhcNfAeMOrammuDqHUB0YFKu8eU8fT4l98Ir8k96QAW3IvcD8oPbudizWCzmluMvNnO4l405ftRKLcRSMrc7fWrRyR6qUxlu9WoanoI-v--E0c6e2mMEtni) no-repeat;
+      background-size: cover;
+    }
+
+    .ui-page {
+      background: none;
+    }
+  </style>
+  <script type="text/javascript">
+    var db;
+    db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db.transaction(populateDB, errorCB, successCB);
+
+    function populateDB(tx) {
+      tx.executeSql('DROP TABLE IF EXISTS User');
+      tx.executeSql('CREATE TABLE IF NOT EXISTS User(id INT, username TEXT, password TEXT, school TEXT, name TEXT)');
+    }
+
+    function errorCB(tx, err) {
+      alert("Error processing SQL: " + err.code);
+    }
+
+    function successCB() {
+      alert("success!");
+    }
+
+    function getNew() {
+      var url = "http://localhost:54698/GetAll/getstudent";
+      $.get(url, function(data, status) {
+        var jsonarr = JSON.parse(data);
+        for (var i = 0; i < jsonarr.length; i++) {
+
+          j = 0;
+          var user = jsonarr[j].username;
+          var pwd = jsonarr[j].password;
+          var school = jsonarr[j].school;
+          var name = jsonarr[j].name;
+          db.transaction(function(tx) {
+            j++;
+            user = jsonarr[j - 1].username;
+            pwd = jsonarr[j - 1].password;
+            school = jsonarr[j - 1].school;
+            name = jsonarr[j - 1].name;
+            tx.executeSql('INSERT INTO User(username, password, school, name) VALUES (?,?,?,?)', [user, pwd, school, name], function(tx, results) {}, null);
+            user = jsonarr[j - 1].username;
+            pwd = jsonarr[j - 1].password;
+            school = jsonarr[j - 1].school;
+            name = jsonarr[j - 1].name;
+          });
+        }
+      });
+    }
+    if (navigator.onLine) {
+      getNew();
+    }
+
+    function check_login() {
+      var username = $("#username").val();
+      var password = $("#password").val();
+      db.transaction(function(tx) {
+        tx.executeSql('SELECT * FROM User WHERE username=? AND password=?', [username, password], function(tx, results) {
+          if (results.rows.length > 0) {
+            var hname;
+            document.getElementById('mname').innerHTML = "Welcome " + results.rows.item(0).name;
+            var url = "http://localhost:54698/GetAll/gettime";
+            var type;
+            var url2;
+            if (results.rows.item(0).school == "SITE") {
+              hname = "site";
+              $.get(url, function(data, status) {
+                var jsonarr = JSON.parse(data);
+                for (var i = 0; i < jsonarr.length; i++) {
+                  if (jsonarr[i].school == "School of Innovative Technologies and Engineering - SITE") {
+                    type = jsonarr[i].type;
+                    url2 = jsonarr[i].url;
+                    document.getElementById('main').innerHTML += '<a href="#popupSemester' + i + '" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View ' + type +
+                      ' TimeTable</a><div data-role="popup" id="popupSemester' + i +
+                      '" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15"><a href="#" data-rel="back" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><iframe src="' +
+                      url2 + '" id="iframe1" width="480" height="320" seamless=""></iframe></div>';
+                  }
+                }
+              });
+            } else if (results.rows.item(0).school == "SSDT") {
+              hname = "ssdt";
+              $.get(url, function(data, status) {
+                var jsonarr = JSON.parse(data);
+                for (var i = 0; i < jsonarr.length; i++) {
+                  if (jsonarr[i].school == "School of Sustainable Development and Tourism - SSDT") {
+                    type = jsonarr[i].type;
+                    url2 = jsonarr[i].url;
+                    document.getElementById('main').innerHTML += '<a href="#popupSemester' + i + '" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View ' + type +
+                      ' TimeTable</a><div data-role="popup" id="popupSemester' + i +
+                      '" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15"><a href="#" data-rel="back" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><iframe src="' +
+                      url2 + '" id="iframe1" width="480" height="320" seamless=""></iframe></div>';
+                  }
+                }
+              });
+            } else if (results.rows.item(0).school == "SHS") {
+              hname = "shs";
+              $.get(url, function(data, status) {
+                var jsonarr = JSON.parse(data);
+                for (var i = 0; i < jsonarr.length; i++) {
+                  if (jsonarr[i].school == "School of Innovative Technologies and Engineering - SHS") {
+                    type = jsonarr[i].type;
+                    url2 = jsonarr[i].url;
+                    document.getElementById('main').innerHTML += '<a href="#popupSemester' + i + '" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View ' + type +
+                      ' TimeTable</a><div data-role="popup" id="popupSemester' + i +
+                      '" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15"><a href="#" data-rel="back" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><iframe src="' +
+                      url2 + '" id="iframe1" width="480" height="320" seamless=""></iframe></div>';
+                  }
+                }
+              });
+            } else if (results.rows.item(0).school == "SBMF") {
+              hname = "sbmf";
+              $.get(url, function(data, status) {
+                var jsonarr = JSON.parse(data);
+                for (var i = 0; i < jsonarr.length; i++) {
+                  if (jsonarr[i].school == "School of Business, Management and Finance - SBMF") {
+                    type = jsonarr[i].type;
+                    url2 = jsonarr[i].url;
+                    document.getElementById('main').innerHTML += '<a href="#popupSemester' + i + '" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">View ' + type +
+                      ' TimeTable</a><div data-role="popup" id="popupSemester' + i +
+                      '" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15"><a href="#" data-rel="back" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><iframe src="' +
+                      url2 + '" id="iframe1" width="480" height="320" seamless=""></iframe></div>';
+                  }
+                }
+              });
+            } else {
+              alert("Cannot get school");
+            }
+            $(":mobile-pagecontainer").pagecontainer("change", "#site", {
+              transition: "turn"
+            });
+          } else {
+            alert("Invalid username or password");
+          }
+        }, errorCB);
+      });
+
+    }
+  </script>
+</head>
+
+<body>
+  <div data-role="page" id="background" data-theme="a">
+    <div data-role="header">
+      <h1><b>Login</b></h1>
+    </div>
+    <div data-role="main" class="ui-content bottom center" style="margin-top: 90%">
+      <form id="login" onsubmit="check_login();">
+        <input id="username" type="text" class="form-control" placeholder="Name" required autofocus>
+        <input id="password" type="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+          Sign in
+        </button>
+      </form>
+    </div>
+    <h6 class="container text-center"><b>Copyright ©2019 All rights reserved</b></h6>
+  </div>
+  <div data-role="page" id="site" data-theme="a">
+    <div data-role="header">
+      <h1 id="hname"><b>Site</b></h1>
+    </div>
+    <div data-role="main" id="main" class="ui-content">
+      <h2 id="mname" class="text-capitalize"><i></i></h2>
+
+    </div>
+    <div data-role="footer" class="container">
+      <a href="index.html" class="col-12 ui-btn">Go Home</a>
+      <h6 class="container text-center"><b>Copyright ©2019 All rights reserved</b></h6>
+    </div>
+  </div>
+</body>
+
+</html>

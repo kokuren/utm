@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>Admin</title>
+  <script type="text/javascript" src="cordova.js"></script>
+  <link rel="stylesheet" href="js/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href="boot/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="boot/bootstrap.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <link rel="stylesheet" href="js/leaflet.css" />
+  <script src="js/leaflet.js"></script>
+  <script type="text/javascript">
+    //document.addEventListener("deviceready", function() {
+    $(document).on("pagecreate", ".demo-page", function() {
+      // Initialize the external persistent header and footer
+
+      // Handler for navigating to the next page
+      function navnext(next) {
+        $(":mobile-pagecontainer").pagecontainer("change", "#" + next + "", {
+          transition: "slide"
+        });
+      }
+      // Handler for navigating to the previous page
+      function navprev(prev) {
+        $(":mobile-pagecontainer").pagecontainer("change", "#" + prev + "", {
+          transition: "slide",
+          reverse: true
+        });
+      }
+      // Navigate to the next page on swipeleft
+      $(document).on("swipeleft", ".ui-page", function(event) {
+        // Get the filename of the next page. We stored that in the data-next
+        // attribute in the original markup.
+        var next = $(this).jqmData("next");
+        // Check if there is a next page and
+        // swipes may also happen when the user highlights text, so ignore those.
+        // We're only interested in swipes on the page.
+        if (next && (event.target === $(this)[0])) {
+          navnext(next);
+        }
+      });
+      // The same for the navigating to the previous page
+      $(document).on("swiperight", ".ui-page", function(event) {
+        var prev = $(this).jqmData("prev");
+        if (prev && (event.target === $(this)[0])) {
+          navprev(prev);
+        }
+      });
+    });
+
+    ///   }, false);
+
+    function ereset() {
+      $("#e_title").val("");
+      $("#e_content").val("");
+      $("#addr").val("");
+      $("#e_file").val("");
+    }
+
+    function nreset() {
+      $("#n_title").val("");
+      $("#n_content").val("");
+    }
+
+    function nsub() {
+      var title = $('#n_title').val();
+      var content = $("#n_content").val();
+      var url = "http://192.168.100.8:45455/GetAll/insert?operation=1&title=" + title + "&con=" + content;
+      $.get(url, function(data, status) {
+        alert(data);
+      });
+    }
+
+    function esub() {
+      var title = $('#e_title').val();
+      var content = $("#e_content").val();
+      var lat = $("#lat").val();
+      var long = $("#lon").val();
+      var url = "http://192.168.100.8:45455/GetAll/insert?operation=2&title=" + title + "&con=" + content + "&lat=" + lat + "&long=" + long;
+      $.get(url, function(data, status) {
+        alert(data);
+      });
+    }
+  </script>
+</head>
+
+<body>
+
+  <div data-role="page" id="epage" data-theme="a" class="demo-page" data-dom-cache="true" data-prev="" data-next="npage" data-url="city">
+    <div data-role="header">
+      <h1><b>Post Event</b></h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <img height="35%" width="100%" src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2016/12/16131147/future-phone-mobile-live-events-technology-trends.png" alt="Event">
+      <br>
+      <input type="text" placeholder="Enter Title" data-clear-btn="true" name="text-19" id="e_title">
+      <textarea cols="40" style="height:100px" placeholder="Enter Your Event Info" rows="16" name="textarea-18" id="e_content"></textarea>
+
+      <input type="text" hidden="" runat="server" name="lat" id="lat" size="12" />
+
+      <div class="form-group row" id="search">
+        <div class="col-8">
+          <input type="search" onkeyup="addr_search();" placeholder="Enter Event Address" name="search-11" id="addr">
+        </div>
+        <div class="col-4">
+          <button type="button" class="btn btn-dark btn-sm" onclick="addr_search();">Search</button>
+        </div>
+        <div id="results"></div>
+      </div>
+      <div id="map"></div>
+      <input type="text" hidden runat="server" name="lon" id="lon" size="12" />
+      <script type="text/javascript">
+        // New York
+        var startlat = 40.75637123;
+        var startlon = -73.98545321;
+
+        var options = {
+          center: [startlat, startlon],
+          zoom: 9
+        }
+
+        document.getElementById('lat').value = "ssss";
+        document.getElementById('lon').value = startlon;
+
+        var map = L.map('map', options);
+        var nzoom = 12;
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          attribution: 'OSM'
+        }).addTo(map);
+
+        var myMarker = L.marker([startlat, startlon], {
+          title: "Coordinates",
+          alt: "Coordinates",
+          draggable: true
+        }).addTo(map).on('dragend', function() {
+          var lat = myMarker.getLatLng().lat.toFixed(8);
+          var lon = myMarker.getLatLng().lng.toFixed(8);
+          var czoom = map.getZoom();
+          if (czoom < 18) {
+            nzoom = czoom + 2;
+          }
+          if (nzoom > 18) {
+            nzoom = 18;
+          }
+          if (czoom != 18) {
+            map.setView([lat, lon], nzoom);
+          } else {
+            map.setView([lat, lon]);
+          }
+          document.getElementById('lat').value = lat;
+          document.getElementById('lon').value = lon;
+          myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
+        });
+
+        function chooseAddr(lat1, lng1) {
+          myMarker.closePopup();
+          map.setView([lat1, lng1], 18);
+          myMarker.setLatLng([lat1, lng1]);
+          lat = lat1.toFixed(8);
+          lon = lng1.toFixed(8);
+
+          //for (y = 0; y < arr[i].display_name.length; y++)
+          //            tempp += arr[i].display_name[y] ;
+          document.getElementById('lat').value = lat;
+
+          document.getElementById('lon').value = lon;
+          myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
+        }
+
+        function myFunctionn(arr) {
+          var out = "<br />";
+          var i;
+          if (arr.length > 0) {
+            for (i = 0; i < arr.length; i++) {
+              out += "<div class='address' title='Show Location and Coordinates' onclick='chooseAddr(" + arr[i].lat + ", " + arr[i].lon + ");mysample(" + i + ");return false;'>" + arr[i].display_name + "</div>";
+            }
+            document.getElementById('results').innerHTML = out;
+          } else {
+            document.getElementById('results').innerHTML = "Sorry, no results...";
+          }
+
+        }
+
+        function addr_search() {
+          var inp = document.getElementById("addr");
+          var xmlhttp = new XMLHttpRequest();
+          var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              var myArr = JSON.parse(this.responseText);
+              myFunctionn(myArr);
+            }
+          };
+          xmlhttp.open("GET", url, true);
+          xmlhttp.send();
+        }
+      </script>
+
+      <input type="file" data-clear-btn="true" name="file-2" id="e_file" value="">
+
+      <div class="row">
+        <div class="col">
+          <input type="submit" onclick="esub()" value="Submit">
+        </div>
+        <div class="col">
+          <input type="reset" onclick="ereset()" value="Reset">
+        </div>
+      </div>
+    </div>
+    <h6 class="container text-center"><b>Copyright ©2019 All rights reserved</b></h6>
+  </div>
+
+
+  <div data-role="page" id="npage" data-theme="a" class="demo-page" data-dom-cache="true" data-prev="epage" data-next="" data-url="city">
+    <div data-role="header">
+      <h1><b>Post News</b></h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <img height="35%" width="100%" src="https://2.bp.blogspot.com/-8sGPzzxv5fU/W4zxLMmlg5I/AAAAAAAAADY/uAjJww94rac-0N1Z0jNkUPD4BwoqNR2YQCLcBGAs/s1600/Tech-news-mostly-about-mobile-applications-and-development.jpg" alt="News">
+      <br>
+      <input type="text" placeholder="Enter Title" data-clear-btn="true" name="text-19" id="n_title">
+      <textarea cols="40" style="height:100px" placeholder="Enter Your News Info" rows="16" name="textarea-18" id="n_content"></textarea>
+
+      <br>
+      <br>
+      <div class="row">
+        <div class="col">
+          <input type="submit" onclick="nsub()" value="Submit">
+        </div>
+        <div class="col">
+          <input type="reset" onclick="nreset()" value="Reset">
+        </div>
+      </div>
+    </div>
+
+    <h6 class="container text-center"><b>Copyright ©2019 All rights reserved</b></h6>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Research Fields</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!-- <link rel="stylesheet" href="css/utm_theme.min.css" />
+  <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" /> -->
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script>
+  $( document ).on( "pageinit", "#demo-page", function() {
+      $(document).on("swiperight", "#research_page", function(e) {
+        // We check if there is no open panel on the page because otherwise
+        // a swipe to close the left panel would also open the right panel (and v.v.).
+        // We do this by checking the data that the framework stores on the page element (panel: open).
+        if ($(".ui-page-active").jqmData("panel") !== "open") {
+          if (e.type === "swiperight") {
+            $("#research_panel").panel("open");
+          }
+        }
+      });
+         });
+  </script>
+
+
+</head>
+
+<body>
+  <div data-role="page" id="research_page" class="ui-page-theme-a">
+    <div data-role="header">
+      <p style=" padding:20px;font-size:17pt;text-align:center;">Research Fields</p>
+      <a href="#left-panel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-b ui-btn-inline">Icon only</a>
+    </div>
+
+    <!-- =================================== TAB ==========================-->
+    <div data-role="tabs" id="research_tabs" data-inset="false" style="margin:0px;padding:0px;">
+      <div data-role="navbar" data-inset="false">
+        <ul>
+          <li><a href="#tab_sbmf" data-ajax="false" class="ui-btn-c">SBMF</a></li>
+          <li><a href="#tab_shs" data-ajax="false" class="ui-btn-c">SHS</a></li>
+          <li><a href="#tab_site" data-ajax="false" class="ui-btn-c">SITE</a></li>
+          <li><a href="#tab_ssdt" data-ajax="false" class="ui-btn-c">SSDT</a></li>
+        </ul>
+      </div>
+
+      <div id="tab_sbmf" class="ui-content">
+            <h2>School of Business, Management and Finance (SBMF)</h2>
+        <b>Assoc. Prof. (Dr) H.B CHITTOO</b>
+        <ul>
+          <li>Public Policy and Management</li>
+        </ul>
+
+
+        <b>Dr Nirmala LOUNG-POORUNDER</b>
+        <ul>
+          <li>
+            Psychology topics related to clinical and organisational psychology
+          </li>
+        </ul>
+
+        <b>Dr Diroubinee MAUREE-NARRAINEN</b>
+        <ul>
+          <li>IT Governance, Management Information Systems</li>
+          <li>Knowledge Management and Related IT Systems</li>
+          <li>e-banking & IT Solutions related to Finance</li>
+          <li>People & E-HR/KM Technologies</li>
+          <li>SMEs & IT</li>
+        </ul>
+
+
+
+        <b>Dr Bhisum NOWBUTSING</b>
+        <ul>
+          <li>International Business and Foreign Direct Investment</li>
+          <li>International Trade: Exchange rate and Trade competitiveness</li>
+          <li>Fiscal policies and tax reforms</li>
+          <li>Development and welfare economics</li>
+
+        </ul>
+
+        <b>Dr Mohun Prasadsing ODIT</b>
+        <ul>
+          <li>Corporate finance and Investment</li>
+        </ul>
+
+        <b>Assoc. Prof. (Dr) Kesseven PADACHI</b>
+        <ul>
+          <li>Small Business Finance</li>
+          <li>Working Capital Management</li>
+          <li>Financial Literacy</li>
+          <li>Capital Structure</li>
+          <li>Corporate Governance</li>
+          <li>SMEs</li>
+        </ul>
+
+        <b>Dr Needesh RAMPHUL</b>
+        <ul>
+          <li>Human Resource Management</li>
+          <li>Public Policy</li>
+          <li>Performance Management System</li>
+          <li>Leadership and Management Development</li>
+          <li>Employee Engagement</li>
+          <li>Organisational Behaviour</li>
+          <li>International HRM, and Sustainable HRM</li>
+        </ul>
+
+        <b>Dr Yuvraj SUNECHER</b>
+        <ul>
+          <li>Finance and Statistics</li>
+        </ul>
+
+          
+      </div>
+        <div id="tab_shs" class="ui-body-d ui-content">
+        <h2>School of Health Sciences (SHS)</h2>
+
+        <b>Dr A. LUXIMON-RAMMA</b>
+        <ul>
+          <li>Pharmacology</li>
+          <li>Pharmacotherapy</li>
+          <li>Pharmacokinetics</li>
+          <li>Traditional Medicines</li>
+          <li>Functional Foods</li>
+          <li>Nutritional Science</li>
+          <li>Clinical Trials/Studies</li>
+          <li>Biomedical Laboratory Technology</li>
+          <li>Biomedical Science</li>
+          <li>Bioinformatics</li>
+          <li>Environmental Science</li>
+          <li>Climate Change and Health</li>
+          <li>Environmental Management</li>
+          <li>Biochemistry</li>
+          <li>Natural Plant Products</li>
+        </ul>
+
+
+
+        <b>Dr M. PUTTEERAJ</b>
+        <ul>
+          <li>Neurobiology</li>
+          <li>Behavioral Neuroscience</li>
+          <li>Molecular biology</li>
+          <li>Neuroendocrinology</li>
+          <li>Substance Abuse Disorders</li>
+          <li>Psychological disorders</li>
+          <li>Developmental neuropsychology</li>
+        </ul>
+
+
+        <b>Dr M.J. SOMANAH-BHUGOWANDEEN</b>
+        <ul>
+          <li>Nutritional Sciences</li>
+          <li>Traditional Medicine and Therapies</li>
+          <li>Applied Clinical Nutrition</li>
+          <li>Biomedical Sciences</li>
+          <li>Natural Plant</li>
+          <li>Product Application</li>
+          <li>Molecular Biology</li>
+        </ul>
+          
+      </div>
+      <div id="tab_site" class="ui-body-d ui-content">
+        <h2>School of Innovative Technologies and Engineering (SITE)</h2>
+
+        <b>Dr Leila DENMAMODE</b>
+        <ul>
+          <li>Sensory Branding</li>
+          <li>Packaging Design</li>
+          <li>Visual Communication</li>
+          <li>Online Retailing</li>
+
+        </ul>
+
+
+
+        <b>Assoc. Prof. (Dr) Nawaz MOHAMUDALLY</b>
+        <ul>
+          <li>Mobile & Pervasive Computing</li>
+          <li>Wireless Networks</li>
+          <li>Data Science</li>
+        </ul>
+
+
+        <b>Dr Shireen PANCHOO</b>
+        <ul>
+          <li>Information systems/Intelligent systems</li>
+          <li>E-commerce</li>
+          <li>Teaching and learning programming to children and adults</li>
+          <li>Smart Learning environment/Learning space</li>
+          <li>Human interactions in Social Networks</li>
+          <li>E-learning/personalized learning</li>
+          <li>Online pedagogy</li>
+          <li>Context awareness</li>
+          <li>Content analysis</li>
+          <li>Learning analytics/Visualisation</li>
+          <li>Artificial Intelligence</li>
+          <li>Online tutoring/Collaborative learning</li>
+          <li>MOOC</li>
+        </ul>
+
+
+
+          
+      </div>
+      <div id="tab_ssdt" class="ui-body-d ui-content">
+        <h2>School of Sustainable Development and Tourism (SSDT)</h2>
+
+        <b>Assoc. Prof. (Dr) Chandradeo BOKHOREE</b>
+        <ul>
+          <li>sustainability assessment</li>
+          <li>environmental health analysis</li>
+          <li>environmental & energy systems modeling</li>
+
+        </ul>
+
+
+
+        <b>Dr S. D. LUKEA-BHIWAJEE</b>
+        <ul>
+          <li>HRM</li>
+          <li>Sustainable HRM</li>
+          <li>Green HRM practices (including Occupational Safety & Health)</li>
+          <li>Work / Employment Issues</li>
+          <li>Leadership</li>
+        </ul>
+
+
+        <b>Dr Perunjodi NAIDOO</b>
+        <ul>
+          <li>Tourism</li>
+          <li>Hospitality</li>
+          <li>Services Management and Marketing</li>
+          <li>Destination Experience</li>
+          <li>Agritourism</li>
+          <li>Quality of life and communities</li>
+          <li>Recreation management</li>
+          <li>Sustainable Development</li>
+          <li>Island tourism</li>
+          <li>Resort tourism</li>
+        </ul>
+
+
+        <b>Dr Prabha RAMSEOOK-MUNHURRUN</b>
+        <ul>
+          <li>Tourism and Hospitality</li>
+          <li>Services Marketing and Management</li>
+          <li>Agritourism</li>
+          <li>Consumer Behaviour</li>
+          <li>Tourist Experience</li>
+          <li>Pro-environmental behaviour</li>
+          <li>Green Tourism</li>
+          <li>SMEs, Sustainability and Marketing</li>
+          <li>Destination Marketing and Management</li>
+        </ul>
+
+
+          
+      </div>
+    </div>
+
+    <!--======================== PANEL STUFF ======================-->
+    <div data-role="panel" data-inset="false" id="left-panel" style="background-color:#08295a;" data-theme="b" data-display="overlay">
+      <ul data-role="listview" data-shadow="false" data-inset="false">
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="news_n_events.html">News And Events</a></li>
+
+        <li><a href="#rec_pop_nav_1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Undergraduate Programs</a></li>
+        <div data-role="popup" id="rec_pop_nav_1">
+          <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
+            <li data-role="list-divider">Choose a School</li>
+            <li><a href="undergrad_sbmf.html">SBMF</a></li>
+            <li><a href="undergrad_site.html">SITE</a></li>
+            <li><a href="undergrad_ssdt.html">SSDT</a></li>
+            <li><a href="unergrad_shs.html">SHS</a></li>
+          </ul>
+        </div><!-- /popup -->
+
+        <li><a href="#rec_pop_nav_2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Postgraduate Programmes</a></li>
+        <div data-role="popup" id="rec_pop_nav_2">
+          <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
+            <li data-role="list-divider">Choose a School</li>
+            <li><a href="postgrad_sbmf.html">SBMF</a></li>
+            <li><a href="postgrad_site.html">SITE</a></li>
+            <li><a href="postgrad_ssdt.html">SSDT</a></li>
+            <li><a href="postgrad_shs.html">SHS</a></li>
+          </ul>
+        </div><!-- /popup -->
+        <li><a href="award_courses.html">Award Courses</a></li>
+        <li><a href="research_fields.html">Research Fields</a></li>
+        <li><a href="fees.html">Fees</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+
+
+      </ul>
+      <div style="margin-top:100px;">
+        <a href="student_login.html" class="ui-btn ui-shadow" >Student LogIn</a>
+        <a href="admin_login.html" class="ui-btn ui-shadow" >Admin LogIn</a>
+      </div>
+
+
+    </div><!-- /panel -->
+    <!--======================== /PANEL STUFF ======================-->
+
+
+
+
+  </div>
+</body>
+
+</html>
