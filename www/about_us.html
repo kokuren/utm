@@ -7,7 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Research Fields</title>
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-
+  <script src="boot/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="boot/bootstrap.min.css">
   <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -20,6 +21,23 @@
          window.location.href = x;
        }
     </script>
+  <script>
+    var url = "http://api.weatherunlocked.com/api/forecast/-20.177102,57.4671855?app_id=911a6f92&app_key=37a5db4dfdc54d85ca644a2487b234b5";
+    $.get(url, function(data, status) {
+
+      jsonn = JSON.parse(JSON.stringify(data));
+      document.getElementById('mainimg').src = "set/" + jsonn.Days[0].Timeframes[0].wx_icon;
+      document.getElementById('status').innerHTML = jsonn.Days[0].Timeframes[0].wx_desc;
+      document.getElementById('temperature').innerHTML = jsonn.Days[0].temp_max_c;
+      document.getElementById('windSpeed').innerHTML = jsonn.Days[0].sunrise_time;
+      document.getElementById('pressure').innerHTML = jsonn.Days[0].sunset_time;
+      document.getElementById('windDirection').innerHTML = jsonn.Days[0].windspd_max_kmh;
+      document.getElementById('humidity').innerHTML = jsonn.Days[0].humid_max_pct;
+
+      console.log(jsonn.Days[0].Timeframes[0].wx_icon);
+
+    });
+  </script>
 </head>
 
 <body onload="load_map()">
@@ -39,6 +57,7 @@
           <li><a href="#council" data-theme="b" style="white-space:normal;height:30px;">Council Members</a></li>
           <li><a href="#location" data-theme="b" style="white-space:normal;height:30px;">Location&nbsp</a></li>
           <li><a href="#contact" data-theme="b" style="white-space:normal;height:30px;">Contact Us</a></li>
+          <li><a href="#mainpage" data-theme="b" style="white-space:normal;height:30px;">UTM Weather</a></li>
         </ul>
       </div>
 
@@ -194,7 +213,48 @@
 
 
   </script>
-
+<div data-role="page" id="mainpage" data-theme="a">
+    <div data-role="header" data-theme="b" class=" text-center container">
+      <h1><b>UTM Weather</b></h1>
+      <div data-role="navbar" data-inset="false">
+        <ul>
+          <li><a href="#governors" data-theme="b" style="white-space:normal;height:30px;">Board of Governors</a></li>
+          <li><a href="#council" data-theme="b" style="white-space:normal;height:30px;">Council Members</a></li>
+          <li><a href="#location" data-theme="b" style="white-space:normal;height:30px;">Location&nbsp</a></li>
+          <li><a href="#contact" data-theme="b" style="white-space:normal;height:30px;">Contact Us</a></li>
+          <li><a href="#mainpage" data-theme="b" style="white-space:normal;height:30px;">UTM Weather</a></li>
+        </ul>
+      </div>
+    </div>
+    <div role="main"  style="background:#edf2f6;" class="ui-content flex items-center justify-center p-8">
+<br>
+      <div class="w-full text-center">
+        <div class="justify-center"><img id="mainimg" src="#" width="170px" /></div>
+        <span id="temperature" class="display-1"></span><span id="unit">°C</span>
+        <div id="status" class="display-4"></div>
+      </div>
+      <br>
+      <div class="row container">
+        <div class="col-6">
+          <img width="30px" src="set/Sunny.gif" style="margin: 0 auto;" /><span id="windSpeed" class="windSpeed"></span>
+        </div>
+        <div class="col-6">
+          <img width="30px" src="set/PartlyCloudyNight.gif" class=" float-right" style="margin: 0 auto;" /><span id="pressure" class="pressure float-right"></span>
+        </div>
+        </div>
+        <div class="row container">
+        <div class="col-6">
+          <img width="30px" src="set/wind.png" style="margin: 0 auto;" /><span id="windDirection" class="windDirection"></span>
+        </div>
+        <div class="col-6">
+          <img width="30px" src="set/humidity.png" class=" float-right" style="margin: 0 auto;" /><span id="humidity" class="humidity float-right"></span>
+        </div>
+      </div>
+    </div>
+    <div data-role="footer" class="container">
+      <h6 class="container text-center"><b>Copyright ©2019 All rights reserved</b></h6>
+    </div>
+  </div>
 
 </body>
 
