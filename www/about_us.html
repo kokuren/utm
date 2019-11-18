@@ -17,6 +17,15 @@
 <link rel="stylesheet" href="leaflet/leaflet.css" />
 <script src="leaflet/leaflet.js"></script>
   <script>
+    function sendmail() {
+    var msg = $('#input_comment').val();
+    var email = $('#input_email').val();
+    var name = $('#input_name').val();
+    var url = "http://localhost:54698/GetAll/send?msg="+msg+"&email="+email+"&name="+name;
+        $.get(url, function(data, status) {
+          alert(data);
+        });
+  }
     function go(x) {
          window.location.href = x;
        }
@@ -120,7 +129,7 @@
       <!--========================================== CONTACT ===========================-->
       <div id="contact" class="ui-content">
         <h2>Contact Us</h2>
-        <form>
+        <form onsubmit="sendmail()">
           <p>
             Name:
             <input type="text" name="input_name" id="input_name" value="">
