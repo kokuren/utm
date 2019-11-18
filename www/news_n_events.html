@@ -207,6 +207,8 @@
         var dept = jsonarr[i].department;
         var date = jsonarr[i].time;
         var imgsrc = jsonarr[i].image;
+        var lat = jsonarr[i].lat;
+        var long = jsonarr[i].long;
 
         var newvid = '<div data-role="page" id="epage' + ii + '" class="demo-page" data-dom-cache="true" data-theme="b" data-prev=epage' + prev + '" data-next=epage' + next +
           '" data-url="city"><div data-role="header"><h1><b>Event & News</b></h1><div data-role="navbar"><ul><li><a href="#epage1" class="ui-btn-active ui-state-persist" data-icon="grid" dataicon="grid">Event</a></li><li><a onclick="go(index.html)" data-icon="home">Home</a></li><li><a href="#npage1" data-icon="info">News</a></li></ul></div></div><div data-role="main" class="ui-content"><h2>' +
@@ -222,7 +224,7 @@
 
         //}
         //}
-        var map = L.map('map' + ii).setView([51.505, -0.09], 13);
+        var map = L.map('map' + ii).setView([lat, long], 13);
 
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
           attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -232,7 +234,7 @@
           accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYyc' + 'XBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
         }).addTo(map);
 
-        L.marker([51.5, -0.09]).addTo(map)
+        L.marker([lat, long]).addTo(map)
           .bindPopup('Event')
           .openPopup();
       }
