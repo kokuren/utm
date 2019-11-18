@@ -24,6 +24,9 @@
     }
   </style>
   <script type="text/javascript">
+    function go() {
+  window.location.href = "index.html";
+}
     var db;
     db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db.transaction(populateDB, errorCB, successCB);
@@ -183,7 +186,7 @@
 
     </div>
     <div data-role="footer" class="container">
-      <a href="index.html" class="col-12 ui-btn">Go Home</a>
+      <a onclick="go()" class="col-12 ui-btn">Go Home</a>
       <h6 class="container text-center"><b>Copyright ©2019 All rights reserved</b></h6>
     </div>
   </div>
