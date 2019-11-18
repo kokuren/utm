@@ -10,31 +10,7 @@
 <body>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript">
-    $(document).ready(function(){
-  app.initalize();
-});
-    var app = {
-
-        initialize: function() {
-            this.bindEvents();
-        },
-
-        bindEvents: function() {
-            document.addEventListener('deviceready', this.onDeviceReady, false);
-            $(document).on("pagecontainershow", app.onDeviceReady);
-        },
-
-        onDeviceReady: function() {
-            app.receivedEvent('deviceready')
-        },
-
-        receivedEvent: function(id){
-
-            alert($.mobile.pageContainer.pagecontainer('getActivePage').data('url'));
-
-        }
-
-}
+    
       // Here the code to verificate the fingerprint
       // Check if device supports fingerprint
 
