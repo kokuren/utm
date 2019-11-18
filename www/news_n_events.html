@@ -30,8 +30,9 @@
     // Pagecreate will fire for each of the pages in this demo
     // but we only need to bind once so we use "one()"
     //
-    $(':mobile-pagecontainer').on('swipeup',function(){window.location.href="index.html";} );
+    
     $(document).one("pagecreate", ".demo-page", function() {
+      $(':mobile-pagecontainer').on('swipeup',function(){window.location.href="index.html";} );
       // Initialize the external persistent header and footer
       $("#header").toolbar({
         theme: "b"
