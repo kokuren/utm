@@ -59,43 +59,43 @@
 
 
     <!--======================== PANEL STUFF ======================-->
-    <div data-role="panel" data-inset="false" id="left-panel" style="background-color:#08295a;" data-theme="b" data-display="overlay">
+    <div data-role="panel" data-inset="false" id="about-panel" style="background-color:#08295a;" data-theme="b" data-display="overlay">
       <ul data-role="listview" data-shadow="false" data-inset="false">
-        <li><a href="index.html">Home</a></li>
+        <li><a onclick="go('index.html')" >Home</a></li>
 
-        <li><a href="news_n_events.html">News And Events</a></li>
+        <li><a onclick="go('news_n_events.html')" >News And Events</a></li>
 
-        <li><a href="#award_pop_1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Undergraduate Programs</a></li>
-        <div data-role="popup" id="award_pop_1">
+        <li><a href="#about_pop_1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Undergraduate Programs</a></li>
+        <div data-role="popup" id="about_pop_1">
           <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
             <li data-role="list-divider">Choose a School</li>
-            <li><a href="undergrad_sbmf.html">SBMF</a></li>
-            <li><a href="undergrad_site.html">SITE</a></li>
-            <li><a href="undergrad_ssdt.html">SSDT</a></li>
-            <li><a href="unergrad_shs.html">SHS</a></li>
+            <li><a onclick="go('undergrad_sbmf.html')">SBMF</a></li>
+            <li><a onclick="go('undergrad_site.html')">SITE</a></li>
+            <li><a onclick="go('undergrad_ssdt.html')">SSDT</a></li>
+            <li><a onclick="go('unergrad_shs.html')">SHS</a></li>
           </ul>
         </div><!-- /popup -->
 
-        <li><a href="#award_pop_2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Postgraduate Programmes</a></li>
-        <div data-role="popup" id="award_pop_2">
+        <li><a href="#about_pop_2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Postgraduate Programmes</a></li>
+        <div data-role="popup" id="about_pop_2">
           <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
             <li data-role="list-divider">Choose a School</li>
-            <li><a href="postgrad_sbmf.html">SBMF</a></li>
-            <li><a href="postgrad_site.html">SITE</a></li>
-            <li><a href="postgrad_ssdt.html">SSDT</a></li>
-            <li><a href="postgrad_shs.html">SHS</a></li>
+            <li><a onclick="go('postgrad_sbmf.html')">SBMF</a></li>
+            <li><a onclick="go('postgrad_site.html')">SITE</a></li>
+            <li><a onclick="go('postgrad_ssdt.html')">SSDT</a></li>
+            <li><a onclick="go('postgrad_shs.html')">SHS</a></li>
           </ul>
         </div><!-- /popup -->
-        <li><a href="award_courses">Award Courses</a></li>
-        <li><a href="research_fields.html">Research Fields</a></li>
-        <li><a href="fees.html">Fees</a></li>
-        <li><a href="about_us.html">About Us</a></li>
+        <li><a onclick="go('award_courses.html')">Award Courses</a></li>
+        <li><a onclick="go('research_fields.html')">Research Fields</a></li>
+        <li><a onclick="go('fees.html')">Fees</a></li>
+        <li><a onclick="go('about_us.html')">About Us</a></li>
 
 
       </ul>
       <div style="margin-top:100px;">
-        <a href="student_login.html" class="ui-btn ui-shadow" >Student LogIn</a>
-        <a href="admin_login.html" class="ui-btn ui-shadow" >Admin LogIn</a>
+        <a onclick="go('student_login.html')" class="ui-btn ui-shadow" >Student LogIn</a>
+        <a onclick="go('admin_login.html')" class="ui-btn ui-shadow" >Admin LogIn</a>
       </div>
 
 
