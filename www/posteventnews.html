@@ -17,7 +17,7 @@
     //document.addEventListener("deviceready", function() {
     $(document).on("pagecreate", ".demo-page", function() {
       // Initialize the external persistent header and footer
-
+$(':mobile-pagecontainer').on('swipeup',function(){window.location.href="index.html";} );
       // Handler for navigating to the next page
       function navnext(next) {
         $(":mobile-pagecontainer").pagecontainer("change", "#" + next + "", {
