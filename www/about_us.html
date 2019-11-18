@@ -21,7 +21,7 @@
     var msg = $('#input_comment').val();
     var email = $('#input_email').val();
     var name = $('#input_name').val();
-    var url = "http://localhost:54698/GetAll/send?msg="+msg+"&email="+email+"&name="+name;
+    var url = "http://192.168.100.8:45455/GetAll/send?msg="+msg+"&email="+email+"&name="+name;
         $.get(url, function(data, status) {
           alert(data);
         });
