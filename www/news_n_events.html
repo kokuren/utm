@@ -209,7 +209,7 @@
         var imgsrc = jsonarr[i].image;
 
         var newvid = '<div data-role="page" id="epage' + ii + '" class="demo-page" data-dom-cache="true" data-theme="b" data-prev=epage' + prev + '" data-next=epage' + next +
-          '" data-url="city"><div data-role="header"><h1><b>Event & News</b></h1><div data-role="navbar"><ul><li><a href="#epage1" class="ui-btn-active ui-state-persist" data-icon="grid" dataicon="grid">Event</a></li><li><a href="#page2" data-icon="home">Home</a></li><li><a href="#npage1" data-icon="info">News</a></li></ul></div></div><div data-role="main" class="ui-content"><h2>' +
+          '" data-url="city"><div data-role="header"><h1><b>Event & News</b></h1><div data-role="navbar"><ul><li><a href="#epage1" class="ui-btn-active ui-state-persist" data-icon="grid" dataicon="grid">Event</a></li><li><a onclick="go(index.html)" data-icon="home">Home</a></li><li><a href="#npage1" data-icon="info">News</a></li></ul></div></div><div data-role="main" class="ui-content"><h2>' +
           title + '</h2><h6>' + Content +
           '</h6><div id="map' + ii + '"></div><a href="#popupPhotoPortrait' + ii +
           '" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow " data-transition="pop">View Poster</a><div data-role="popup" id="popupPhotoPortrait' +
@@ -245,7 +245,7 @@
       <div data-role="navbar">
         <ul>
           <li><a href="#epage1" data-icon="grid" dataicon="home">Event</a></li>
-          <li><a href="#page2" class="ui-btn-active ui-state-persist" data-icon="home">Home</a></li>
+          <li><a onclick="go(index.html)" class="ui-btn-active ui-state-persist" data-icon="home">Home</a></li>
           <li><a href="#npage1" data-icon="info">News</a></li>
         </ul>
       </div>
@@ -262,7 +262,7 @@
       <div data-role="navbar">
         <ul>
           <li><a href="#epage1" data-icon="grid" dataicon="home">Event</a></li>
-          <li><a href="#page2" data-icon="home">Home</a></li>
+          <li><a onclick="go(index.html)" data-icon="home">Home</a></li>
           <li><a href="#npage1" class="ui-btn-active ui-state-persist" data-icon="info">News</a></li>
         </ul>
       </div>
@@ -306,7 +306,7 @@
         var date = jsonarr[i].time;
 
         var newvid = '<div data-role="page" id="npage' + ii + '" class="demo-page" data-dom-cache="true" data-theme="b" data-prev=npage' + prev + '" data-next=epage' + next +
-          '" data-url="city"><div data-role = "header" ><h1><b>News</b></h1><div data-role = "navbar" ><ul><li><a href = "#epage1" data-icon = "grid" dataicon = "home"> Event </a></li ><li><a href = "#page2" data-icon = "home" > Home </a></li><li><a href = "#npage1"class = "ui-btn-active ui-state-persist" data-icon = "info" > News </a></li></ul></div></div><div data-role = "main" class = "ui-content" ><h2> ' +
+          '" data-url="city"><div data-role = "header" ><h1><b>News</b></h1><div data-role = "navbar" ><ul><li><a href = "#epage1" data-icon = "grid" dataicon = "home"> Event </a></li ><li><a onclick="go(index.html)" data-icon = "home" > Home </a></li><li><a href = "#npage1"class = "ui-btn-active ui-state-persist" data-icon = "info" > News </a></li></ul></div></div><div data-role = "main" class = "ui-content" ><h2> ' +
           title + ' </h2><h6>' + Content + '</h6></div><div data-role = "footer"class = "container" ><div class = "row" ><div class = "col-6" ><h6> ' + date + ' </h6> </div> <div class = "col-6" ><h6> ' + dept +
           ' </h6> </div> </div> <div class = "col-12" ><h6> Posted by: ' + pby + '</h6> </div><a href = #npage' + prev + ' class = "ui-btn ui-mini float-left" > Prev </a> <a href = #npage' + next +
           ' class = "ui-btn ui-mini float-right" > Next </a> </div> </div>';
