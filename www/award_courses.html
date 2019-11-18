@@ -21,7 +21,7 @@ function go(x) {
   <div data-role="page" id="index_page" class="ui-page-theme-c">
     <div data-role="header">
       <p style="padding:20px;font-size:17pt;text-align:center;">Award Courses</p>
-      <a href="#left-panel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-b ui-btn-inline">Icon only</a>
+      <a href="#c-panel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-b ui-btn-inline">Icon only</a>
     </div>
     <div data-role="main" class="ui-content">
       <h5 style="color:#08295a; margin:0;">Best Viewed in Landscape</h5>
@@ -64,14 +64,14 @@ function go(x) {
 
 
     <!--======================== PANEL STUFF ======================-->
-    <div data-role="panel" data-inset="false" id="about-panel" style="background-color:#08295a;" data-theme="b" data-display="overlay">
+    <div data-role="panel" data-inset="false" id="c-panel" style="background-color:#08295a;" data-theme="b" data-display="overlay">
       <ul data-role="listview" data-shadow="false" data-inset="false">
         <li><a onclick="go('index.html')" >Home</a></li>
 
         <li><a onclick="go('news_n_events.html')" >News And Events</a></li>
 
-        <li><a href="#about_pop_1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Undergraduate Programs</a></li>
-        <div data-role="popup" id="about_pop_1">
+        <li><a href="#c_pop_1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Undergraduate Programs</a></li>
+        <div data-role="popup" id="c_pop_1">
           <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
             <li data-role="list-divider">Choose a School</li>
             <li><a onclick="go('undergrad_sbmf.html')">SBMF</a></li>
@@ -81,8 +81,8 @@ function go(x) {
           </ul>
         </div><!-- /popup -->
 
-        <li><a href="#about_pop_2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Postgraduate Programmes</a></li>
-        <div data-role="popup" id="about_pop_2">
+        <li><a href="#c_pop_2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-plus" data-rel="popup" data-transition="pop">Postgraduate Programmes</a></li>
+        <div data-role="popup" id="c_pop_2">
           <ul data-role="listview" data-theme="a" data-inset="false" style="min-width:200px;">
             <li data-role="list-divider">Choose a School</li>
             <li><a onclick="go('postgrad_sbmf.html')">SBMF</a></li>
