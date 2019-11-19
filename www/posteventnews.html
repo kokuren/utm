@@ -69,7 +69,7 @@ $(':mobile-pagecontainer').on('swipeup',function(){window.location.href="index.h
     function nsub() {
       var title = $('#n_title').val();
       var content = $("#n_content").val();
-      var url = "http://192.168.100.8:45455/GetAll/insert?operation=1&title=" + title + "&con=" + content;
+      var url = "http://192.168.43.12:45455/GetAll/insert?operation=1&title=" + title + "&con=" + content;
       $.get(url, function(data, status) {
         alert(data);
       });
@@ -80,7 +80,7 @@ $(':mobile-pagecontainer').on('swipeup',function(){window.location.href="index.h
       var content = $("#e_content").val();
       var lat = $("#lat").val();
       var long = $("#lon").val();
-      var url = "http://192.168.100.8:45455/GetAll/insert?operation=2&title=" + title + "&con=" + content + "&lat=" + lat + "&long=" + long;
+      var url = "http://192.168.43.12:45455/GetAll/insert?operation=2&title=" + title + "&con=" + content + "&lat=" + lat + "&long=" + long;
       $.get(url, function(data, status) {
         alert(data);
       });
