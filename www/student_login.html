@@ -45,7 +45,7 @@
     }
 
     function getNew() {
-      var url = "http://192.168.100.8:45455/GetAll/getstudent";
+      var url = "http://192.168.43.12:45455/GetAll/getstudent";
       $.get(url, function(data, status) {
         var jsonarr = JSON.parse(data);
         for (var i = 0; i < jsonarr.length; i++) {
@@ -82,7 +82,7 @@
           if (results.rows.length > 0) {
             var hname;
             document.getElementById('mname').innerHTML = "Welcome " + results.rows.item(0).name;
-            var url = "http://192.168.100.8:45455/GetAll/gettime";
+            var url = "http://192.168.43.12:45455/GetAll/gettime";
             var type;
             var url2;
             if (results.rows.item(0).school == "SITE") {
